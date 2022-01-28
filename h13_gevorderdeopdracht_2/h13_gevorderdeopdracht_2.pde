@@ -2,11 +2,12 @@ Keypad keyPad;
 
 color backgroundC = color(200,200,200);
 color entryC = color(242,244,255);
+int number;
 int firstNumber;
 int secondNumber;
-boolean isReadingFirstNumber = false;
-String operation = "";
-float result;
+String operation;
+int result;
+int numberOfClicks = 0;
 
 void setup(){
   size(400,500);
@@ -22,68 +23,110 @@ void draw(){
 }
 
 void mousePressed(){
+  
+  numberOfClicks++;
+  
   if(mouseX > 10 && mouseX < 90 && mouseY >100 && mouseY < 180){
     background(entryC);
-    firstNumber = 7;
+    if(numberOfClicks == 1){
+      firstNumber = 7;
+    }else if(numberOfClicks == 3){
+      secondNumber = 7;
+    }
   }
   
   if(mouseX > 110 && mouseX < 190 && mouseY > 100 && mouseY < 180){
     background(entryC);
-    firstNumber = 8;
+      if(numberOfClicks == 1){
+      firstNumber = 8;
+      }else if(numberOfClicks == 3){
+      secondNumber = 8;
+    }
   }
   
   if(mouseX > 210 && mouseX < 290 && mouseY > 100 && mouseY < 180){
     background(entryC);
-    firstNumber = 9;
+    if(numberOfClicks == 1){
+      firstNumber =9;
+    }else if(numberOfClicks == 3){
+      secondNumber = 9;
+    }
   }
     
   if(mouseX > 310 && mouseX < 390 && mouseY > 100 && mouseY < 180){
     background(entryC);
-    operation = "/";
+    if(numberOfClicks == 2){
+      operation = "/";
+    }
   }
   
   if(mouseX > 10 && mouseX < 90 && mouseY > 200 && mouseY < 280){
     background(entryC);
-    firstNumber = 4;
+    if(numberOfClicks == 1){
+      firstNumber = 4;
+    }else if(numberOfClicks == 3){
+      secondNumber = 4;
+    }
   }
   
   if(mouseX > 110 && mouseX < 190 && mouseY > 200 && mouseY < 280){
     background(entryC);
-    firstNumber = 5;
+    if(numberOfClicks == 1){
+      firstNumber = 5;
+    }else if(numberOfClicks == 3){
+      secondNumber = 5;
+    }
   }
   
   if(mouseX > 210 && mouseX < 290 && mouseY > 200 && mouseY < 280){
     background(entryC);
-    firstNumber = 6;
+    if(numberOfClicks == 1){
+      firstNumber = 6;
+    }else if(numberOfClicks == 3){
+      secondNumber = 6;
+    }
   }
   
   if(mouseX > 310 && mouseX < 390 && mouseY > 200 && mouseY < 280){
     background(entryC);
-    operation = "*";
+    if(numberOfClicks == 2){
+      operation = "*";
+    }
   }
   
   if(mouseX > 10 && mouseX < 90 && mouseY > 300 && mouseY < 380){
     background(entryC);
-    if(isReadingFirstNumber){
-      firstNumber = 1;
-    }else{
-      secondNumber = 1;
-    }
+     if(numberOfClicks == 1){
+       firstNumber = 1;
+     }else if(numberOfClicks == 3){
+       secondNumber = 1;
+     }
   }
   
   if(mouseX > 110 && mouseX < 190 && mouseY > 300 && mouseY < 380){
     background(entryC);
-    firstNumber = 2;
+    if(numberOfClicks == 1){
+      firstNumber = 2;
+    }else if(numberOfClicks == 3){
+      secondNumber = 2;
+    }
   }
   
   if(mouseX > 210 && mouseX < 290 && mouseY > 300 && mouseY < 380){
     background(entryC);
-    firstNumber = 3;
+    if(numberOfClicks == 1){
+      firstNumber = 3;
+    }else if(numberOfClicks == 3){
+      secondNumber = 3;
+    }
   }
   
   if(mouseX > 310 && mouseX < 390 && mouseY > 300 && mouseY < 380){
     background(entryC);
     operation = "-";
+    if(numberOfClicks == 2){
+      operation = "-";
+    }
   }
   
   if(mouseX > 10 && mouseX < 90 && mouseY > 400 && mouseY < 480){
@@ -93,37 +136,48 @@ void mousePressed(){
   
   if(mouseX > 110 && mouseX < 190 && mouseY > 400 && mouseY < 480){
     background(entryC);
-    firstNumber = 0;
+    if(numberOfClicks == 1){
+      firstNumber = 0;
+    }else if(numberOfClicks == 3){
+      secondNumber =0;
+    }
   }
   
   if(mouseX > 210 && mouseX < 290 && mouseY > 400 && mouseY < 480){
     background(entryC);
-    operation = "=";
     if(operation.equals("+")){
       result = firstNumber + secondNumber;
       text(result,12,70);
+      println(result);
     }
     
     if(operation.equals("/")){
       result = firstNumber / secondNumber;
       text(result,12,70);
+      println(result);
     }
     
     if(operation.equals("-")){
       result = firstNumber - secondNumber;
       text(result,12,70);
+      println(result);
     }
     
     if(operation.equals("*")){
       result = firstNumber * secondNumber;
       text(result,12,70);
+      println(result);
     }
   }
   
   if(mouseX > 310 && mouseX < 390 && mouseY > 400 && mouseY < 480){
     background(entryC);
-    operation = "+";
+    if(numberOfClicks == 2){
+      operation = "+";
+    }
   }
+  
+  println("firstNmuber: " + firstNumber + " / secondNumber: "+secondNumber);
   
 }
 
