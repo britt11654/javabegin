@@ -21,12 +21,15 @@ void draw(){
   if(numberOfClicks == 1){
     text(firstNumber,12,70);
   }
+  
   if(numberOfClicks == 2){
     text(operation,12,70);
   }
+  
   if(numberOfClicks == 3){
     text(secondNumber,12,70);
   }
+  
   if(mouseX > 210 && mouseX < 290 && mouseY > 400 && mouseY < 480){
     text(result,12,70);
   }
@@ -141,6 +144,7 @@ void mousePressed(){
   if(mouseX > 10 && mouseX < 90 && mouseY > 400 && mouseY < 480){
     background(entryC);
     operation = "";
+    numberOfClicks = 0;
   }
   
   if(mouseX > 110 && mouseX < 190 && mouseY > 400 && mouseY < 480){
@@ -148,7 +152,7 @@ void mousePressed(){
     if(numberOfClicks == 1){
       firstNumber = 0;
     }else if(numberOfClicks == 3){
-      secondNumber =0;
+      secondNumber = 0;
     }
   }
   
@@ -187,7 +191,6 @@ void mousePressed(){
   }
   
   println("firstNmuber: " + firstNumber + " / secondNumber: "+secondNumber);
-  
 }
 
 class Keypad{
