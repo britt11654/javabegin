@@ -2,7 +2,6 @@ Keypad keyPad;
 
 color backgroundC = color(200,200,200);
 color entryC = color(242,244,255);
-int number;
 int firstNumber;
 int secondNumber;
 String operation;
@@ -19,11 +18,21 @@ void setup(){
 
 void draw(){
   keyPad.Display();
-  text(firstNumber,12,70);
+  if(numberOfClicks == 1){
+    text(firstNumber,12,70);
+  }
+  if(numberOfClicks == 2){
+    text(operation,12,70);
+  }
+  if(numberOfClicks == 3){
+    text(secondNumber,12,70);
+  }
+  if(mouseX > 210 && mouseX < 290 && mouseY > 400 && mouseY < 480){
+    text(result,12,70);
+  }
 }
 
 void mousePressed(){
-  
   numberOfClicks++;
   
   if(mouseX > 10 && mouseX < 90 && mouseY >100 && mouseY < 180){
